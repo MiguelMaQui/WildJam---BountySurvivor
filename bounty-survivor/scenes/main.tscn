@@ -156,10 +156,17 @@ theme_override_font_sizes/font_size = 25
 
 [node name="GameOverPanel" type="Panel" parent="UI" unique_id=503106384]
 visible = false
-offset_left = 330.0
-offset_top = 178.0
-offset_right = 730.0
-offset_bottom = 428.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.1490403, 1.1490403)
 
 [node name="Background" type="TextureRect" parent="UI/GameOverPanel" unique_id=973653950]
@@ -224,20 +231,30 @@ theme_override_font_sizes/font_size = 28
 text = "🛡️ 0"
 
 [node name="WaveLabel" type="Label" parent="UI" unique_id=2072335599]
-offset_left = 509.0
-offset_top = 20.0
-offset_right = 628.0
-offset_bottom = 59.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_right = 59.5
+offset_bottom = 39.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_85g3d")
 theme_override_font_sizes/font_size = 28
 text = "Oleada 1"
 horizontal_alignment = 1
 
 [node name="XPLabel" type="Label" parent="UI" unique_id=1042049029]
-offset_left = 469.0
-offset_top = 571.0
-offset_right = 674.0
-offset_bottom = 594.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -75.0
+offset_right = 103.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(1.0399976, 1)
 theme_override_fonts/font = ExtResource("5_85g3d")
 theme_override_font_sizes/font_size = 20
@@ -245,17 +262,31 @@ text = "Proxima habilidad : 100pts"
 horizontal_alignment = 1
 
 [node name="XPBarBG" type="ColorRect" parent="UI" unique_id=1627194495]
-offset_left = 426.0
-offset_top = 600.0
-offset_right = 726.0
-offset_bottom = 628.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -46.0
+offset_right = 150.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="XPBarFill" type="ColorRect" parent="UI" unique_id=1347139958]
-offset_left = 426.0
-offset_top = 600.0
-offset_right = 426.0
-offset_bottom = 628.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -46.0
+offset_right = -150.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(1, 0.84313726, 0, 1)
 
 [node name="PausePanel" type="Panel" parent="UI" unique_id=1912903616]

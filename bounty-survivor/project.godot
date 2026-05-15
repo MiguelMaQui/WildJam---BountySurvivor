@@ -20,6 +20,10 @@ config/icon="uid://yi2r630d6op3"
 GameManager="*uid://c0t11ludhpxmx"
 BGM="*uid://crs8s6bhur8xh"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor]
 
 version_control/autoload_on_startup=true
