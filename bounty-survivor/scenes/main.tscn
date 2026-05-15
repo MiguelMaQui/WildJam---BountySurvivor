@@ -1,0 +1,323 @@
+[gd_scene format=3 uid="uid://5l4x1v6x0k0p"]
+
+[ext_resource type="Script" uid="uid://bcgsl561y1bjr" path="res://scripts/manager/ui.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://c308blkqnc1px" path="res://scenes/player/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://o5jp21wlyhhq" path="res://scripts/manager/enemy_spawner.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://co53x6qgrvuqo" path="res://scenes/enemies/enemy.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://csjwqqpht4li5" path="res://scripts/manager/map_manager.gd" id="3_choun"]
+[ext_resource type="PackedScene" uid="uid://d0scs8g4ycd8c" path="res://scenes/enemies/boss.tscn" id="3_jkv2x"]
+[ext_resource type="TileSet" uid="uid://bfnabax1ekdm0" path="res://assets/forest_tile_set.tres" id="3_tefeu"]
+[ext_resource type="FontFile" uid="uid://bxij1avkipw1v" path="res://assets/Fonts/Jersey10-Regular.ttf" id="5_85g3d"]
+[ext_resource type="AudioStream" uid="uid://dijbtmxwyk2v6" path="res://sounds/powerUp (1).wav" id="5_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://b40yymcujjuyb" path="res://assets/sprites/Mainmenu.png" id="6_choun"]
+[ext_resource type="Texture2D" uid="uid://cwxavoy35ts3i" path="res://assets/Poster_Bounty/Wanted_poster.png" id="6_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://bq2alc3eq1jbm" path="res://sounds/pickupCoin.wav" id="6_tipki"]
+[ext_resource type="Texture2D" uid="uid://g46j0d5wmuny" path="res://assets/Poster_Bounty/Wanted_coin.png" id="7_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://rkd25enorwsj" path="res://assets/swordsman-1-3-level-pixel-top-down-sprite-character/PNG/Swordsman_lvl1/Without_shadow/Swordsman_lvl1_Idle_without_shadow.png" id="7_trceg"]
+[ext_resource type="Texture2D" uid="uid://cy5u406tf6hi2" path="res://assets/Poster_Bounty/Wanted_blank.png" id="8_jkv2x"]
+
+[node name="Main" type="Node2D" unique_id=1308034002]
+y_sort_enabled = true
+
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=1594643861]
+script = ExtResource("1_tbgi4")
+enemy_scene = ExtResource("2_0wfyh")
+boss_scene = ExtResource("3_jkv2x")
+
+[node name="MapManager" type="Node2D" parent="." unique_id=1331443459 node_paths=PackedStringArray("player", "ground_layer", "details_layer", "objects_layer")]
+y_sort_enabled = true
+script = ExtResource("3_choun")
+player = NodePath("../Player")
+ground_layer = NodePath("GroundLayer")
+details_layer = NodePath("DetailsLayer")
+objects_layer = NodePath("ObjectsLayer")
+
+[node name="GroundLayer" type="TileMapLayer" parent="MapManager" unique_id=1324007622]
+z_index = -10
+tile_set = ExtResource("3_tefeu")
+
+[node name="DetailsLayer" type="TileMapLayer" parent="MapManager" unique_id=1910768961]
+z_index = -9
+tile_set = ExtResource("3_tefeu")
+
+[node name="ObjectsLayer" type="TileMapLayer" parent="MapManager" unique_id=1768080821]
+y_sort_enabled = true
+tile_set = ExtResource("3_tefeu")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=676862769]
+script = ExtResource("1_jyhfs")
+
+[node name="WantedPoster" type="Sprite2D" parent="UI" unique_id=1622697268]
+position = Vector2(110, 99.60465)
+scale = Vector2(0.13953489, 0.13953489)
+texture = ExtResource("6_eb6dy")
+
+[node name="WantedCoin" type="Sprite2D" parent="UI/WantedPoster" unique_id=135191474]
+position = Vector2(-282.18747, 375.5)
+scale = Vector2(1.0644611, 1.0644611)
+texture = ExtResource("7_a8y0u")
+
+[node name="WantedBlank" type="Sprite2D" parent="UI/WantedPoster" unique_id=1561702178]
+position = Vector2(-107.5, 373.4167)
+scale = Vector2(0.927451, 0.927451)
+texture = ExtResource("8_jkv2x")
+
+[node name="SwordsmanLvl1IdleWithoutShadow" type="Sprite2D" parent="UI/WantedPoster" unique_id=587174671]
+position = Vector2(14.333313, -78.083374)
+scale = Vector2(15.229166, 15.229166)
+texture = ExtResource("7_trceg")
+hframes = 12
+vframes = 4
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=726975369]
+offset_left = 88.0
+offset_top = 134.0
+offset_right = 189.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0.3137255, 0.23921569, 0.21176471, 1)
+theme_override_colors/font_shadow_color = Color(0.65882355, 0.52156866, 0.4117647, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="HealthBar" type="ProgressBar" parent="UI" unique_id=461347244]
+offset_left = 11.0
+offset_top = 200.0
+offset_right = 211.0
+offset_bottom = 227.0
+theme_override_fonts/font = ExtResource("5_85g3d")
+value = 100.0
+
+[node name="AbilityPanel" type="Panel" parent="UI" unique_id=1016738337]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="UI/AbilityPanel" unique_id=1388196306]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1774.0
+offset_bottom = 887.0
+scale = Vector2(0.33730674, 0.46044755)
+texture = ExtResource("6_choun")
+
+[node name="TitleLabel" type="Label" parent="UI/AbilityPanel" unique_id=411064747]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 46.0
+offset_right = 502.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 60
+text = "¡Nueva Habilidad!"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/AbilityPanel" unique_id=1799670133]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0150001
+offset_top = 40.0
+offset_bottom = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/AbilityPanel/CenterContainer" unique_id=342015399]
+custom_minimum_size = Vector2(400, 150)
+layout_mode = 2
+alignment = 1
+
+[node name="Ability1Button" type="Button" parent="UI/AbilityPanel/CenterContainer/VBoxContainer" unique_id=1412852921]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 25
+
+[node name="Ability2Button" type="Button" parent="UI/AbilityPanel/CenterContainer/VBoxContainer" unique_id=167444486]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 25
+
+[node name="Ability3Button" type="Button" parent="UI/AbilityPanel/CenterContainer/VBoxContainer" unique_id=1703407374]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 25
+
+[node name="GameOverPanel" type="Panel" parent="UI" unique_id=503106384]
+visible = false
+offset_left = 330.0
+offset_top = 178.0
+offset_right = 730.0
+offset_bottom = 428.0
+scale = Vector2(1.1490403, 1.1490403)
+
+[node name="Background" type="TextureRect" parent="UI/GameOverPanel" unique_id=973653950]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 1774.0
+offset_bottom = 887.0
+scale = Vector2(0.22436485, 0.27966726)
+texture = ExtResource("6_choun")
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOverPanel" unique_id=1170597014]
+layout_mode = 0
+offset_left = 61.7907
+offset_top = 28.719614
+offset_right = 337.7907
+offset_bottom = 95.71961
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="UI/GameOverPanel" unique_id=471287068]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 98.0
+offset_right = 194.0
+offset_bottom = 143.0
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="HighscoreLabel" type="Label" parent="UI/GameOverPanel" unique_id=1273862448]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 164.0
+offset_right = 211.0
+offset_bottom = 198.0
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 24
+text = "Mejor: 0"
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="UI/GameOverPanel" unique_id=474017704]
+layout_mode = 0
+offset_left = 153.17131
+offset_top = 221.05402
+offset_right = 239.17131
+offset_bottom = 247.05402
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 15
+text = "REINICIAR
+"
+
+[node name="ShieldLabel" type="Label" parent="UI" unique_id=1061192075]
+visible = false
+offset_left = 20.0
+offset_top = 230.0
+offset_right = 74.0
+offset_bottom = 269.0
+theme_override_font_sizes/font_size = 28
+text = "🛡️ 0"
+
+[node name="WaveLabel" type="Label" parent="UI" unique_id=2072335599]
+offset_left = 509.0
+offset_top = 20.0
+offset_right = 628.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 28
+text = "Oleada 1"
+horizontal_alignment = 1
+
+[node name="XPLabel" type="Label" parent="UI" unique_id=1042049029]
+offset_left = 469.0
+offset_top = 571.0
+offset_right = 674.0
+offset_bottom = 594.0
+scale = Vector2(1.0399976, 1)
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 20
+text = "Proxima habilidad : 100pts"
+horizontal_alignment = 1
+
+[node name="XPBarBG" type="ColorRect" parent="UI" unique_id=1627194495]
+offset_left = 426.0
+offset_top = 600.0
+offset_right = 726.0
+offset_bottom = 628.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="XPBarFill" type="ColorRect" parent="UI" unique_id=1347139958]
+offset_left = 426.0
+offset_top = 600.0
+offset_right = 426.0
+offset_bottom = 628.0
+color = Color(1, 0.84313726, 0, 1)
+
+[node name="PausePanel" type="Panel" parent="UI" unique_id=1912903616]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UI/PausePanel" unique_id=666351587]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.22436485, 0.27966726)
+texture = ExtResource("6_choun")
+
+[node name="PauseTitleLabel" type="Label" parent="UI/PausePanel" unique_id=2136290147]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 32.0
+offset_right = 269.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 75
+text = "PAUSA"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="UI/PausePanel" unique_id=1044139543]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 114.0
+offset_right = 249.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 20
+text = "Continuar"
+
+[node name="QuitButton" type="Button" parent="UI/PausePanel" unique_id=1563606048]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 172.0
+offset_right = 262.0
+offset_bottom = 203.0
+theme_override_fonts/font = ExtResource("5_85g3d")
+theme_override_font_sizes/font_size = 20
+text = "Menu Principal"
+
+[node name="SfxLevelUp" type="AudioStreamPlayer" parent="UI" unique_id=473064165]
+process_mode = 3
+stream = ExtResource("5_o6xl0")
+
+[node name="SfxSelect" type="AudioStreamPlayer" parent="UI" unique_id=987644438]
+process_mode = 3
+stream = ExtResource("6_tipki")
+
+[node name="Player" parent="." unique_id=1825057876 instance=ExtResource("1_o5qli")]
+position = Vector2(562, 316)

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://crs8s6bhur8xh"]
+
+[ext_resource type="AudioStream" uid="uid://n48ybwyakw03" path="res://sounds/2021-08-30_-_Boss_Time_-_www.FesliyanStudios.com.mp3" id="1_q5y64"]
+
+[node name="BGM" type="AudioStreamPlayer" unique_id=1794128325]
+stream = ExtResource("1_q5y64")
+volume_db = -25.0
+autoplay = true

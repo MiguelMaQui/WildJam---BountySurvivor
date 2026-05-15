@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://btfoqijeq5u8x"]
+
+[ext_resource type="Texture2D" uid="uid://b40yymcujjuyb" path="res://assets/sprites/Mainmenu.png" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://cqirfgn0ttwvo" path="res://scripts/manager/credits.gd" id="1_0ctdu"]
+[ext_resource type="FontFile" uid="uid://bxij1avkipw1v" path="res://assets/Fonts/Jersey10-Regular.ttf" id="2_2ckv8"]
+
+[node name="Credits" type="Control" unique_id=1147709831]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -573.0
+offset_top = -322.0
+offset_right = -533.0
+offset_bottom = -282.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64720905, 0.72987485)
+script = ExtResource("1_0ctdu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1235896007]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_0bpdh")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1038426057]
+layout_mode = 0
+offset_left = 712.2892
+offset_top = 68.50489
+offset_right = 1092.2891
+offset_bottom = 198.50488
+theme_override_fonts/font = ExtResource("2_2ckv8")
+theme_override_font_sizes/font_size = 120
+text = "CREDITOS"
+horizontal_alignment = 1
+
+[node name="DevLabel" type="Label" parent="." unique_id=1742425812]
+layout_mode = 0
+offset_left = 506.79144
+offset_top = 189.07352
+offset_right = 1345.7915
+offset_bottom = 269.07352
+theme_override_fonts/font = ExtResource("2_2ckv8")
+theme_override_font_sizes/font_size = 60
+text = "Desarrollado por Miguel Martín Quintana"
+horizontal_alignment = 1
+
+[node name="AssetsLabel" type="Label" parent="." unique_id=1663025804]
+layout_mode = 0
+offset_left = 180.7762
+offset_top = 287.72055
+offset_right = 1606.7762
+offset_bottom = 536.7206
+theme_override_fonts/font = ExtResource("2_2ckv8")
+theme_override_font_sizes/font_size = 55
+text = "Assets:
+Free Undead Tileset Top Down Pixel Art - craftpix.net
+Free Swordsman 1–3 Level Pixel Top-Down Sprite Character - craftpix.net
+Dungeon Gathering Monster Sprite Expansion - SnowHex"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="." unique_id=909268576]
+layout_mode = 0
+offset_left = 638.1245
+offset_top = 558.99994
+offset_right = 1141.1245
+offset_bottom = 693.99994
+theme_override_fonts/font = ExtResource("2_2ckv8")
+theme_override_font_sizes/font_size = 60
+text = "Musica:
+Boss Time - David Renda"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="." unique_id=187478361]
+layout_mode = 0
+offset_left = 676.7519
+offset_top = 806.9877
+offset_right = 976.75183
+offset_bottom = 946.9877
+scale = Vector2(1.4632729, 0.50359863)
+theme_override_fonts/font = ExtResource("2_2ckv8")
+theme_override_font_sizes/font_size = 45
+text = "MENU PRINCIPAL"

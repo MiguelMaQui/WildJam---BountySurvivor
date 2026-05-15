@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cr2fb807pp2lx"]
+
+[ext_resource type="Script" uid="uid://byu4av13ggcue" path="res://scripts/manager/floating_text.gd" id="1_0qskq"]
+
+[node name="FloatingText" type="Node2D" unique_id=1883060580]
+script = ExtResource("1_0qskq")
+
+[node name="Label" type="Label" parent="." unique_id=1256286197]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 24
+text = "+10"
+horizontal_alignment = 1

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bv3cjs5vr308j"]
+
+[ext_resource type="Script" uid="uid://wy0lbpg5q3yd" path="res://scripts/manager/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://b40yymcujjuyb" path="res://assets/sprites/Mainmenu.png" id="2_bqqt6"]
+[ext_resource type="FontFile" uid="uid://bxij1avkipw1v" path="res://assets/Fonts/Jersey10-Regular.ttf" id="3_wu84c"]
+
+[node name="MainMenu" type="Control" unique_id=723437390]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -110.0
+offset_right = -89.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=93443395]
+layout_mode = 0
+offset_left = -444.0
+offset_top = -211.0
+offset_right = -348.0
+offset_bottom = -147.0
+scale = Vector2(0.64793646, 0.72433275)
+texture = ExtResource("2_bqqt6")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1402340262]
+layout_mode = 0
+offset_left = -122.0
+offset_top = -144.0
+offset_right = 403.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("3_wu84c")
+theme_override_font_sizes/font_size = 200
+text = "BOUNTY"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="." unique_id=55050929]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 11.0
+offset_right = 277.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("3_wu84c")
+theme_override_font_sizes/font_size = 100
+text = "Survivor"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="." unique_id=2021497537]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 138.0
+offset_right = 216.0
+offset_bottom = 180.0
+scale = Vector2(1.1132289, 1.3152143)
+theme_override_fonts/font = ExtResource("3_wu84c")
+theme_override_font_sizes/font_size = 30
+text = "JUGAR"
+
+[node name="TutorialButton" type="Button" parent="." unique_id=974481130]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 281.0
+offset_right = 216.0
+offset_bottom = 323.0
+scale = Vector2(1.1132289, 1.3152143)
+theme_override_fonts/font = ExtResource("3_wu84c")
+theme_override_font_sizes/font_size = 30
+text = "TUTORIAL"
+
+[node name="CreditsButton" type="Button" parent="." unique_id=1020572831]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 374.0
+offset_right = 216.0
+offset_bottom = 416.0
+scale = Vector2(1.1132289, 1.3152143)
+theme_override_fonts/font = ExtResource("3_wu84c")
+theme_override_font_sizes/font_size = 30
+text = "CREDITOS"
